@@ -1,0 +1,13 @@
+# Lab dependencies already installed in the CREMI environment.
+# Environment: /net/ens/atcv/atcv-env
+# Python: 3.13.5
+# CUDA-tagged PyTorch builds need matching wheels when recreating this environment.
+torch==2.14.1+cu126
+torchvision==0.29.1+cu126
+torchmetrics==1.9.0
+Pillow==12.3.0
+numpy==2.5.2
+# Added for the local 'PyTorch' conda env (Windows, Python 3.13, RTX 4060): report plots in train.py.
+# Install: pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu126
+matplotlib==3.11.2
+tqdm==4.70.1

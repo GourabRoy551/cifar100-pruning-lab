@@ -1,0 +1,20 @@
+﻿% Figure 7: Exercise 4, global pruning before and after re-training (left), and a zoom on the re-trained models (right).
+\begin{tikzpicture}
+\begin{groupplot}[report,
+  group style={group size=2 by 1, horizontal sep=1.8cm},
+  width=0.45\linewidth, height=5.8cm,
+  xlabel={Sparsity (\%)}, xmin=-3, xmax=93, xtick={0,30,60,90}]
+\nextgroupplot[ylabel={Validation accuracy (\%)}, ymin=0, ymax=80, legend pos=south west]
+\addplot[global, mark=square*] table[x=sparsity, y=before]{data/ex4.csv};
+\addlegendentry{Before (Ex.~3)}
+\addplot[finetuned, mark=triangle*] table[x=sparsity, y=after]{data/ex4.csv};
+\addlegendentry{After 5 epochs}
+\nextgroupplot[ylabel={Validation accuracy (\%)}, ymin=64.5, ymax=69.5, legend pos=south west]
+\addplot[finetuned, mark=triangle*] table[x=sparsity, y=after]{data/ex4.csv};
+\addlegendentry{After re-training (zoom)}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (95,\baselineacc)};
+\addlegendentry{Baseline}
+\node[circle, draw=finetuned!80!black, line width=1.2pt, minimum size=9pt, inner sep=0pt] at (axis cs:70,68.05) {};
+\node[font=\footnotesize, text=finetuned!80!black, anchor=north east] at (axis cs:68,67.75) {My choice: 70\%};
+\end{groupplot}
+\end{tikzpicture}

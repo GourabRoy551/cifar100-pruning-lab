@@ -1,0 +1,15 @@
+% Figure 10: Exercise 5, iterative versus one-shot pruning, both after re-training (zoomed axis).
+\begin{tikzpicture}
+\begin{axis}[report,
+  xlabel={Sparsity (\%)}, ylabel={Validation accuracy (\%)},
+  xmin=-2, xmax=92, ymin=64.5, ymax=69.5, xtick={0,10,...,90}, legend pos=south west]
+\addplot[finetuned, mark=triangle*] table[x=sparsity, y=after]{data/ex4.csv};
+\addlegendentry{One-shot + re-training (Ex.~4, 5 epochs)}
+\addplot[iterative, mark=diamond*] table[x=sparsity, y=after_retraining]{data/ex5.csv};
+\addlegendentry{Iterative + re-training (Ex.~5, $5\times$step epochs)}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (95,\baselineacc)};
+\addlegendentry{Baseline (68.67\%)}
+\node[font=\footnotesize, text=iterative, anchor=west] at (axis cs:38,66.95) {at 60\%: iterative $-0.99$};
+\node[font=\footnotesize, text=iterative, anchor=west] at (axis cs:58,65.1) {at 90\%: iterative $+0.72$};
+\end{axis}
+\end{tikzpicture}

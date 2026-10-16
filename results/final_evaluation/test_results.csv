@@ -1,0 +1,7 @@
+model,file,sparsity,nonzero_parameters,val_loss,val_acc,test_loss,test_acc,test_correct,test_images
+Baseline (Ex. 0),best_model_params.pt,0.0,2820740,1.1873149793624878,0.6867,1.1897691796302796,0.6854,6854,10000
+"Global 50%, no re-training (Ex. 3)",results\exercise3\exercise3_global_50.pt,0.5,1410370,1.219537027168274,0.6767,1.221524468612671,0.6737,6737,10000
+Global 70% + re-training (Ex. 4) - FINAL CHOICE,results\exercise4\exercise4_finetuned_70.pt,0.7,846222,1.2132110271453858,0.6805,1.2081313802719116,0.6834,6834,10000
+Global 80% + re-training (Ex. 4),results\exercise4\exercise4_finetuned_80.pt,0.8,564148,1.2213881505966186,0.6739,1.2000800242424012,0.6784,6784,10000
+Iterative 40% (Ex. 5),results\exercise5\exercise5_iterative_40.pt,0.4,1692444,1.3006530559539795,0.6799,1.294331787109375,0.6776,6776,10000
+Iterative 90% (Ex. 5),results\exercise5\exercise5_iterative_90.pt,0.9,282074,1.3059363468170166,0.6603,1.3131618701934815,0.6609,6609,10000

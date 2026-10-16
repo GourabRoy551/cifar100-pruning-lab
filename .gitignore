@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# CIFAR-100 dataset (downloaded automatically by the scripts)
+/data/
+
+# Pruned models re-created by pruning.py (only the key models are kept in the repository)
+results/**/*.pt
+!results/exercise1/exercise1_pruned_20.pt
+!results/exercise4/exercise4_finetuned_70.pt
+!results/bonus/bonus_structured_20.pt
+best_model_params.pt.backup
+
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz

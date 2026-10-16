@@ -1,0 +1,21 @@
+% Figure 9: Exercise 5, validation accuracy along the whole iterative procedure (drop at each pruning step, then recovery).
+\begin{tikzpicture}
+\begin{axis}[report, height=5.6cm,
+  xlabel={Total re-training epochs}, ylabel={Validation accuracy (\%)},
+  xmin=-1, xmax=31, ymin=0, ymax=100, xtick={0,5,...,30}, legend pos=south west]
+\pgfplotsinvokeforeach{0,5,10,15,20,25}{
+  \draw[gray!60, dotted, line width=0.8pt] (axis cs:#1,0) -- (axis cs:#1,100);
+}
+\addplot[iterative, mark=*, mark size=1.5pt] table[x=x, y=acc]{data/ex5_timeline.csv};
+\addlegendentry{Iterative pruning + re-training}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (35,\baselineacc)};
+\addlegendentry{Baseline (68.67\%)}
+% Total sparsity reached at each pruning step.
+\node[font=\small, text=refgray] at (axis cs:2.5,92) {20\%};
+\node[font=\small, text=refgray] at (axis cs:7.5,92) {40\%};
+\node[font=\small, text=refgray] at (axis cs:12.5,92) {60\%};
+\node[font=\small, text=refgray] at (axis cs:17.5,92) {70\%};
+\node[font=\small, text=refgray] at (axis cs:22.5,92) {80\%};
+\node[font=\small, text=refgray] at (axis cs:27.5,92) {90\%};
+\end{axis}
+\end{tikzpicture}

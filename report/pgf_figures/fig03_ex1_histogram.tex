@@ -1,0 +1,15 @@
+% Figure 3: Exercise 1, weights of layer3.0.conv2 and the ones removed by 20% layer-wise L1 pruning.
+\begin{tikzpicture}
+\begin{axis}[report, width=0.97\linewidth, height=5.6cm,
+  xlabel={Weight value}, ylabel={Number of weights},
+  xmin=-0.12, xmax=0.12, ymin=0, ymax=10500, xtick={-0.1,-0.05,0,0.05,0.1},
+  scaled y ticks=false, scaled x ticks=false,
+  yticklabel style={/pgf/number format/1000 sep={\,}},
+  xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=2},
+  legend pos=north west]
+\addplot[ybar interval, fill=global!65, draw=none, area legend] table[x=left_edge, y=all]{data/ex1_histogram.csv};
+\addlegendentry{All weights}
+\addplot[ybar interval, fill=finetuned, draw=none, area legend] table[x=left_edge, y=pruned]{data/ex1_histogram.csv};
+\addlegendentry{Pruned ($|w| \le 0.0073$, the 20\% smallest)}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,67 @@
+Exercise 3: global L1 unstructured pruning
+==================================================
+Baseline (unpruned): val loss = 1.1873, val accuracy = 68.67%
+Sparsity ratios: [0.0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+
+sparsity   0% (actual 0.00%, |w| <= 0.0000 pruned): val loss = 1.1873, val accuracy = 68.67% (drop of 0.00 points)
+sparsity   5% (actual 5.00%, |w| <= 0.0013 pruned): val loss = 1.1871, val accuracy = 68.67% (drop of 0.00 points)
+sparsity  10% (actual 10.00%, |w| <= 0.0026 pruned): val loss = 1.1874, val accuracy = 68.77% (drop of -0.10 points)
+sparsity  15% (actual 15.00%, |w| <= 0.0039 pruned): val loss = 1.1878, val accuracy = 68.79% (drop of -0.12 points)
+sparsity  20% (actual 20.00%, |w| <= 0.0053 pruned): val loss = 1.1885, val accuracy = 68.61% (drop of 0.06 points)
+sparsity  30% (actual 30.00%, |w| <= 0.0081 pruned): val loss = 1.1909, val accuracy = 68.78% (drop of -0.11 points)
+sparsity  40% (actual 40.00%, |w| <= 0.0111 pruned): val loss = 1.2066, val accuracy = 68.21% (drop of 0.46 points)
+sparsity  50% (actual 50.00%, |w| <= 0.0144 pruned): val loss = 1.2195, val accuracy = 67.67% (drop of 1.00 points)
+sparsity  60% (actual 60.00%, |w| <= 0.0182 pruned): val loss = 1.2940, val accuracy = 65.09% (drop of 3.58 points)
+sparsity  70% (actual 70.00%, |w| <= 0.0228 pruned): val loss = 1.5543, val accuracy = 58.22% (drop of 10.45 points)
+sparsity  80% (actual 80.00%, |w| <= 0.0291 pruned): val loss = 2.7524, val accuracy = 34.60% (drop of 34.07 points)
+sparsity  90% (actual 90.00%, |w| <= 0.0397 pruned): val loss = 5.7027, val accuracy = 4.61% (drop of 64.06 points)
+
+Kept ratio (highest sparsity with accuracy at most 1 point below baseline): 50%, val accuracy = 67.67%
+
+Sparsity of each layer for the kept model (50%):
+  stem.0                 Conv2d            864 params  sparsity = 9.26%
+  stem.1                 BatchNorm2d        64 params  sparsity = 3.12%
+  layer1.0.conv1         Conv2d          9,216 params  sparsity = 37.70%
+  layer1.0.bn1           BatchNorm2d        64 params  sparsity = 1.56%
+  layer1.0.conv2         Conv2d          9,216 params  sparsity = 33.57%
+  layer1.0.bn2           BatchNorm2d        64 params  sparsity = 6.25%
+  layer1.1.conv1         Conv2d          9,216 params  sparsity = 33.91%
+  layer1.1.bn1           BatchNorm2d        64 params  sparsity = 10.94%
+  layer1.1.conv2         Conv2d          9,216 params  sparsity = 31.45%
+  layer1.1.bn2           BatchNorm2d        64 params  sparsity = 4.69%
+  layer2.0.conv1         Conv2d         18,432 params  sparsity = 34.50%
+  layer2.0.bn1           BatchNorm2d       128 params  sparsity = 3.12%
+  layer2.0.conv2         Conv2d         36,864 params  sparsity = 34.69%
+  layer2.0.bn2           BatchNorm2d       128 params  sparsity = 7.03%
+  layer2.0.shortcut.0    Conv2d          2,048 params  sparsity = 13.72%
+  layer2.0.shortcut.1    BatchNorm2d       128 params  sparsity = 7.03%
+  layer2.1.conv1         Conv2d         36,864 params  sparsity = 32.23%
+  layer2.1.bn1           BatchNorm2d       128 params  sparsity = 0.00%
+  layer2.1.conv2         Conv2d         36,864 params  sparsity = 34.97%
+  layer2.1.bn2           BatchNorm2d       128 params  sparsity = 3.91%
+  layer3.0.conv1         Conv2d         73,728 params  sparsity = 33.61%
+  layer3.0.bn1           BatchNorm2d       256 params  sparsity = 4.30%
+  layer3.0.conv2         Conv2d        147,456 params  sparsity = 37.95%
+  layer3.0.bn2           BatchNorm2d       256 params  sparsity = 7.81%
+  layer3.0.shortcut.0    Conv2d          8,192 params  sparsity = 20.51%
+  layer3.0.shortcut.1    BatchNorm2d       256 params  sparsity = 8.20%
+  layer3.1.conv1         Conv2d        147,456 params  sparsity = 43.45%
+  layer3.1.bn1           BatchNorm2d       256 params  sparsity = 0.00%
+  layer3.1.conv2         Conv2d        147,456 params  sparsity = 47.54%
+  layer3.1.bn2           BatchNorm2d       256 params  sparsity = 2.73%
+  layer4.0.conv1         Conv2d        294,912 params  sparsity = 45.20%
+  layer4.0.bn1           BatchNorm2d       512 params  sparsity = 0.20%
+  layer4.0.conv2         Conv2d        589,824 params  sparsity = 53.43%
+  layer4.0.bn2           BatchNorm2d       512 params  sparsity = 0.00%
+  layer4.0.shortcut.0    Conv2d         32,768 params  sparsity = 27.28%
+  layer4.0.shortcut.1    BatchNorm2d       512 params  sparsity = 0.00%
+  layer4.1.conv1         Conv2d        589,824 params  sparsity = 50.32%
+  layer4.1.bn1           BatchNorm2d       512 params  sparsity = 0.00%
+  layer4.1.conv2         Conv2d        589,824 params  sparsity = 64.44%
+  layer4.1.bn2           BatchNorm2d       512 params  sparsity = 0.98%
+  fc                     Linear         25,700 params  sparsity = 9.77%
+Sparsity per layer type:
+  Conv2d       1,407,750 / 2,790,240 zeros, sparsity = 50.45%
+  BatchNorm2d  109 / 4,800 zeros, sparsity = 2.27%
+  Linear       2,511 / 25,700 zeros, sparsity = 9.77%
+Results saved in E:\E Drive\UBX\Advanced_Topics_in_IPCV\Lab 1 src files\results\exercise3

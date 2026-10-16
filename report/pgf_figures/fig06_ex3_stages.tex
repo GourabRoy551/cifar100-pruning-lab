@@ -1,0 +1,15 @@
+% Figure 6: Exercise 3, sparsity per part of the network for the kept global model (50% overall).
+\begin{tikzpicture}
+\begin{axis}[report, height=5.8cm,
+  ybar, bar width=20pt, ymin=0, ymax=70,
+  ylabel={Sparsity of the part (\%)},
+  symbolic x coords={Stem conv, Stage 1, Stage 2, Stage 3, Stage 4, Classifier, All BN},
+  xtick=data, enlarge x limits=0.08,
+  nodes near coords, nodes near coords style={font=\footnotesize},
+  point meta=explicit symbolic,
+  extra y ticks={50}, extra y tick labels={},
+  extra y tick style={grid=major, grid style={refgray, dashed, line width=0.8pt}}]
+\addplot[fill=global!75, draw=none] table[x=part, y=sparsity, meta=sparsity]{data/ex3_stages.csv};
+\node[font=\small, text=refgray, anchor=south west] at (rel axis cs:0.01,0.72) {overall target: 50\%};
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,62 @@
+Exercise 5: iterative pruning and re-training
+==================================================
+Baseline (unpruned): val loss = 1.1873, val accuracy = 68.67%
+Sparsity steps: [0.2, 0.4, 0.6, 0.7, 0.8, 0.9]
+After each step: re-training 5 epochs, SGD lr = 0.01 (cosine decay)
+
+Step 1: pruning 564,148 more weights (global L1) to reach 20% total sparsity
+  epoch 0 (before re-training): val loss = 1.1885, val accuracy = 68.61%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3595, train acc = 0.8965 | val loss = 1.2931, val acc = 0.6684
+  epoch 2/5: lr = 0.00905 | train loss = 0.3477, train acc = 0.8984 | val loss = 1.2785, val acc = 0.6693
+  epoch 3/5: lr = 0.00655 | train loss = 0.3025, train acc = 0.9153 | val loss = 1.2684, val acc = 0.6764
+  epoch 4/5: lr = 0.00345 | train loss = 0.2567, train acc = 0.9319 | val loss = 1.2526, val acc = 0.6795
+  epoch 5/5: lr = 0.00095 | train loss = 0.2247, train acc = 0.9437 | val loss = 1.2365, val acc = 0.6852
+  -> val accuracy 68.61% right after pruning, 68.52% after re-training (0.15 points below baseline), actual sparsity = 20.00%, 5 re-training epochs in total
+
+Step 2: pruning 564,148 more weights (global L1) to reach 40% total sparsity
+  epoch 0 (before re-training): val loss = 1.2597, val accuracy = 68.05%
+  epoch 1/5: lr = 0.01000 | train loss = 0.1511, train acc = 0.9765 | val loss = 1.3157, val acc = 0.6713
+  epoch 2/5: lr = 0.00905 | train loss = 0.1346, train acc = 0.9796 | val loss = 1.3210, val acc = 0.6738
+  epoch 3/5: lr = 0.00655 | train loss = 0.1351, train acc = 0.9787 | val loss = 1.3196, val acc = 0.6776
+  epoch 4/5: lr = 0.00345 | train loss = 0.1523, train acc = 0.9717 | val loss = 1.3098, val acc = 0.6763
+  epoch 5/5: lr = 0.00095 | train loss = 0.1698, train acc = 0.9610 | val loss = 1.3007, val acc = 0.6799
+  -> val accuracy 68.05% right after pruning, 67.99% after re-training (0.68 points below baseline), actual sparsity = 40.00%, 10 re-training epochs in total
+
+Step 3: pruning 564,148 more weights (global L1) to reach 60% total sparsity
+  epoch 0 (before re-training): val loss = 1.3944, val accuracy = 65.37%
+  epoch 1/5: lr = 0.01000 | train loss = 0.1025, train acc = 0.9928 | val loss = 1.3524, val acc = 0.6644
+  epoch 2/5: lr = 0.00905 | train loss = 0.0879, train acc = 0.9949 | val loss = 1.3647, val acc = 0.6696
+  epoch 3/5: lr = 0.00655 | train loss = 0.0935, train acc = 0.9924 | val loss = 1.3553, val acc = 0.6725
+  epoch 4/5: lr = 0.00345 | train loss = 0.1189, train acc = 0.9843 | val loss = 1.3502, val acc = 0.6709
+  epoch 5/5: lr = 0.00095 | train loss = 0.1587, train acc = 0.9651 | val loss = 1.3423, val acc = 0.6753
+  -> val accuracy 65.37% right after pruning, 67.53% after re-training (1.14 points below baseline), actual sparsity = 60.00%, 15 re-training epochs in total
+
+Step 4: pruning 282,074 more weights (global L1) to reach 70% total sparsity
+  epoch 0 (before re-training): val loss = 1.4498, val accuracy = 63.90%
+  epoch 1/5: lr = 0.01000 | train loss = 0.0981, train acc = 0.9918 | val loss = 1.4040, val acc = 0.6648
+  epoch 2/5: lr = 0.00905 | train loss = 0.0794, train acc = 0.9955 | val loss = 1.4168, val acc = 0.6629
+  epoch 3/5: lr = 0.00655 | train loss = 0.0834, train acc = 0.9950 | val loss = 1.4058, val acc = 0.6675
+  epoch 4/5: lr = 0.00345 | train loss = 0.1089, train acc = 0.9870 | val loss = 1.3999, val acc = 0.6694
+  epoch 5/5: lr = 0.00095 | train loss = 0.1566, train acc = 0.9656 | val loss = 1.3850, val acc = 0.6723
+  -> val accuracy 63.90% right after pruning, 67.23% after re-training (1.44 points below baseline), actual sparsity = 70.00%, 20 re-training epochs in total
+
+Step 5: pruning 282,074 more weights (global L1) to reach 80% total sparsity
+  epoch 0 (before re-training): val loss = 1.9857, val accuracy = 52.37%
+  epoch 1/5: lr = 0.01000 | train loss = 0.2494, train acc = 0.9425 | val loss = 1.4814, val acc = 0.6409
+  epoch 2/5: lr = 0.00905 | train loss = 0.1980, train acc = 0.9570 | val loss = 1.4556, val acc = 0.6503
+  epoch 3/5: lr = 0.00655 | train loss = 0.1863, train acc = 0.9600 | val loss = 1.4621, val acc = 0.6531
+  epoch 4/5: lr = 0.00345 | train loss = 0.1879, train acc = 0.9579 | val loss = 1.4300, val acc = 0.6647
+  epoch 5/5: lr = 0.00095 | train loss = 0.2212, train acc = 0.9409 | val loss = 1.3975, val acc = 0.6688
+  -> val accuracy 52.37% right after pruning, 66.88% after re-training (1.79 points below baseline), actual sparsity = 80.00%, 25 re-training epochs in total
+
+Step 6: pruning 282,074 more weights (global L1) to reach 90% total sparsity
+  epoch 0 (before re-training): val loss = 3.9780, val accuracy = 17.75%
+  epoch 1/5: lr = 0.01000 | train loss = 0.8214, train acc = 0.7562 | val loss = 1.5583, val acc = 0.6055
+  epoch 2/5: lr = 0.00905 | train loss = 0.6460, train acc = 0.8062 | val loss = 1.4852, val acc = 0.6199
+  epoch 3/5: lr = 0.00655 | train loss = 0.5701, train acc = 0.8278 | val loss = 1.4043, val acc = 0.6385
+  epoch 4/5: lr = 0.00345 | train loss = 0.5231, train acc = 0.8433 | val loss = 1.3388, val acc = 0.6503
+  epoch 5/5: lr = 0.00095 | train loss = 0.5154, train acc = 0.8456 | val loss = 1.3059, val acc = 0.6603
+  -> val accuracy 17.75% right after pruning, 66.03% after re-training (2.64 points below baseline), actual sparsity = 90.00%, 30 re-training epochs in total
+
+Kept ratio (highest sparsity with accuracy at most 1 point below baseline): 40%, val accuracy = 67.99%
+Results saved in E:\E Drive\UBX\Advanced_Topics_in_IPCV\Lab 1 src files\results\exercise5

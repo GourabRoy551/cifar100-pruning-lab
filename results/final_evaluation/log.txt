@@ -1,0 +1,33 @@
+Final evaluation of the chosen models (validation and test sets)
+==================================================
+Baseline (Ex. 0)
+  file: best_model_params.pt
+  sparsity = 0.00% (2,820,740 non-zero parameters)
+  val:  loss = 1.1873, accuracy = 68.67%
+  test: loss = 1.1898, accuracy = 68.54% (6854/10000)
+Global 50%, no re-training (Ex. 3)
+  file: results\exercise3\exercise3_global_50.pt
+  sparsity = 50.00% (1,410,370 non-zero parameters)
+  val:  loss = 1.2195, accuracy = 67.67%
+  test: loss = 1.2215, accuracy = 67.37% (6737/10000)
+Global 70% + re-training (Ex. 4) - FINAL CHOICE
+  file: results\exercise4\exercise4_finetuned_70.pt
+  sparsity = 70.00% (846,222 non-zero parameters)
+  val:  loss = 1.2132, accuracy = 68.05%
+  test: loss = 1.2081, accuracy = 68.34% (6834/10000)
+Global 80% + re-training (Ex. 4)
+  file: results\exercise4\exercise4_finetuned_80.pt
+  sparsity = 80.00% (564,148 non-zero parameters)
+  val:  loss = 1.2214, accuracy = 67.39%
+  test: loss = 1.2001, accuracy = 67.84% (6784/10000)
+Iterative 40% (Ex. 5)
+  file: results\exercise5\exercise5_iterative_40.pt
+  sparsity = 40.00% (1,692,444 non-zero parameters)
+  val:  loss = 1.3007, accuracy = 67.99%
+  test: loss = 1.2943, accuracy = 67.76% (6776/10000)
+Iterative 90% (Ex. 5)
+  file: results\exercise5\exercise5_iterative_90.pt
+  sparsity = 90.00% (282,074 non-zero parameters)
+  val:  loss = 1.3059, accuracy = 66.03%
+  test: loss = 1.3132, accuracy = 66.09% (6609/10000)
+Results saved in E:\E Drive\UBX\Advanced_Topics_in_IPCV\Lab 1 src files\results\final_evaluation

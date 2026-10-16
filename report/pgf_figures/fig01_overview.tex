@@ -1,0 +1,19 @@
+% Figure 1: overview of all pruning methods (validation accuracy vs sparsity).
+\begin{tikzpicture}
+\begin{axis}[report, legend below=3,
+  xlabel={Sparsity (\%)}, ylabel={Validation accuracy (\%)},
+  xmin=-2, xmax=92, ymin=0, ymax=85, xtick={0,10,...,90}, ytick={0,20,...,80}]
+\addplot[layerwise, mark=*] table[x=sparsity, y=acc]{data/ex2.csv};
+\addlegendentry{Layer-wise (Ex.~2)}
+\addplot[global, mark=square*] table[x=sparsity, y=acc]{data/ex3.csv};
+\addlegendentry{Global (Ex.~3)}
+\addplot[finetuned, mark=triangle*] table[x=sparsity, y=after]{data/ex4.csv};
+\addlegendentry{Global + re-training (Ex.~4)}
+\addplot[iterative, mark=diamond*] table[x=sparsity, y=after_retraining]{data/ex5.csv};
+\addlegendentry{Iterative + re-training (Ex.~5)}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (95,\baselineacc)};
+\addlegendentry{Baseline (68.67\%)}
+\node[circle, draw=finetuned!80!black, line width=1.2pt, minimum size=9pt, inner sep=0pt] (choice) at (axis cs:70,68.05) {};
+\node[font=\small, text=finetuned!80!black, anchor=south] at (axis cs:70,72) {My choice: 70\%};
+\end{axis}
+\end{tikzpicture}

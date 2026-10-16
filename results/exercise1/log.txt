@@ -1,0 +1,19 @@
+Exercise 1: layer-by-layer L1 unstructured pruning
+==================================================
+Baseline (unpruned): val loss = 1.1873, val accuracy = 68.67%
+41 layers with parameters, 62 tensors to prune (weights + biases)
+62 masks created by pruning, for example:
+  stem.0.weight_mask: shape (32, 3, 3, 3), kept 79.98% of the entries
+  stem.1.weight_mask: shape (32,), kept 81.25% of the entries
+  stem.1.bias_mask: shape (32,), kept 81.25% of the entries
+  layer1.0.conv1.weight_mask: shape (32, 32, 3, 3), kept 80.00% of the entries
+  layer1.0.bn1.weight_mask: shape (32,), kept 81.25% of the entries
+  Mask of the first 3x3 kernel of the first conv (1 = kept, 0 = pruned):
+    [1, 1, 1]
+    [1, 1, 0]
+    [1, 1, 1]
+Pruned model: 564,148 / 2,820,740 parameters are zero (actual sparsity = 20.00%)
+Pruned model: val loss = 3.3057, val accuracy = 26.73% (drop of 41.94 points)
+After prune.remove: val accuracy = 26.73% (same model, masks removed)
+File sizes: baseline = 11.34 MB, pruned with masks = 22.65 MB, pruned after prune.remove = 11.34 MB
+Results saved in E:\E Drive\UBX\Advanced_Topics_in_IPCV\Lab 1 src files\results\exercise1

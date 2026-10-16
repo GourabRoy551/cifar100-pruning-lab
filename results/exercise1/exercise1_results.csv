@@ -1,0 +1,2 @@
+sparsity_ratio,actual_sparsity,total_parameters,zero_parameters,baseline_val_loss,baseline_val_acc,pruned_val_loss,pruned_val_acc,after_remove_val_acc,acc_drop_points,size_baseline_mb,size_masked_mb,size_after_remove_mb
+0.2,0.2,2820740,564148,1.1873149793624878,0.6867,3.3056876388549803,0.2673,0.2673,41.94,11.34,22.65,11.34

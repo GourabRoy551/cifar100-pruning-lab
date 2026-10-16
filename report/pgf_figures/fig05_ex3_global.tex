@@ -1,0 +1,15 @@
+% Figure 5: Exercise 3, global versus layer-wise L1 pruning, without re-training.
+\begin{tikzpicture}
+\begin{axis}[report, legend below=3,
+  xlabel={Sparsity (\%)}, ylabel={Validation accuracy (\%)},
+  xmin=-2, xmax=92, ymin=0, ymax=80, xtick={0,10,...,90}]
+\addplot[layerwise, mark=*] table[x=sparsity, y=acc]{data/ex2.csv};
+\addlegendentry{Layer-wise L1 (Ex.~2)}
+\addplot[global, mark=square*] table[x=sparsity, y=acc]{data/ex3.csv};
+\addlegendentry{Global L1}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (95,\baselineacc)};
+\addlegendentry{Baseline (68.67\%)}
+\node[circle, draw=global!80!black, line width=1.2pt, minimum size=9pt, inner sep=0pt] at (axis cs:50,67.67) {};
+\node[font=\small, text=global!80!black, anchor=north] at (axis cs:50,63.5) {My choice: 50\%, 67.67\%};
+\end{axis}
+\end{tikzpicture}

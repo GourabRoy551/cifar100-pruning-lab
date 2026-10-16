@@ -1,0 +1,17 @@
+% Figure 11: final evaluation, validation and test accuracy of the selected models.
+\begin{tikzpicture}
+\begin{axis}[report, scale only axis, width=0.55\linewidth, height=5.2cm,
+  xlabel={Accuracy (\%)}, xmin=65.5, xmax=69.5,
+  ymin=-0.6, ymax=5.6, y dir=reverse,
+  ytick={0,...,5},
+  yticklabels={{Baseline (Ex.~0)}, {Global 50\%, no re-training (Ex.~3)}, {\textbf{Global 70\% + re-training (Ex.~4)}},
+               {Global 80\% + re-training (Ex.~4)}, {Iterative 40\% (Ex.~5)}, {Iterative 90\% (Ex.~5)}},
+  ymajorgrids=false, legend pos=south east, clip=false]
+\addplot[only marks, mark=o, refgray, mark size=2.8pt] table[x=val, y=index]{data/final.csv};
+\addlegendentry{Validation}
+\addplot[only marks, mark=*, global, mark size=3.2pt] table[x=test, y=index]{data/final.csv};
+\addlegendentry{Test}
+\draw[refgray, dashed, line width=0.8pt] (axis cs:68.54,-0.6) -- (axis cs:68.54,5.6);
+\node[font=\footnotesize, text=refgray, anchor=south] at (axis cs:68.54,-0.6) {baseline test 68.54\%};
+\end{axis}
+\end{tikzpicture}

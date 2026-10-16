@@ -1,0 +1,12 @@
+% Figure 8: Exercise 4, accuracy recovered by re-training at each sparsity (30% and above).
+\begin{tikzpicture}
+\begin{axis}[report, height=5.6cm,
+  ybar, bar width=16pt,
+  xlabel={Global sparsity (\%)}, ylabel={Accuracy gain (points)},
+  xmin=24, xmax=96, ymin=-7, ymax=68, xtick={30,40,...,90},
+  restrict x to domain=29:91,
+  nodes near coords, nodes near coords style={font=\footnotesize},
+  every node near coord/.append style={/pgf/number format/fixed, /pgf/number format/precision=2, /pgf/number format/fixed zerofill}]
+\addplot[fill=finetuned!80, draw=none] table[x=sparsity, y=gain]{data/ex4.csv};
+\end{axis}
+\end{tikzpicture}

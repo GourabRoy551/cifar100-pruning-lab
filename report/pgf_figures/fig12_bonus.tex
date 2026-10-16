@@ -1,0 +1,25 @@
+﻿% Figure 12: Bonus, structured (filter) pruning versus unstructured global pruning, before re-training (left)
+% and after re-training (right, zoomed axis). x = actual sparsity of the whole network.
+\begin{tikzpicture}
+\begin{groupplot}[report,
+  group style={group size=2 by 1, horizontal sep=1.8cm},
+  width=0.45\linewidth, height=5.8cm,
+  xlabel={Sparsity (\%)}, xmin=-2, xmax=52, xtick={0,10,...,50},
+  restrict x to domain=-1:51]
+\nextgroupplot[ylabel={Validation accuracy (\%)}, ymin=0, ymax=100, ytick={0,20,...,80},
+  legend pos=north east,
+  title={\small Without re-training}]
+\addplot[global, mark=square*] table[x=sparsity, y=acc]{data/ex3.csv};
+\addlegendentry{Unstructured}
+\addplot[structured, mark=pentagon*] table[x=sparsity, y=before]{data/bonus.csv};
+\addlegendentry{Structured (filters)}
+\nextgroupplot[ylabel={Validation accuracy (\%)}, ymin=64.5, ymax=69.5, legend pos=south west,
+  title={\small After 5 epochs of re-training}]
+\addplot[finetuned, mark=triangle*] table[x=sparsity, y=after]{data/ex4.csv};
+\addlegendentry{Unstructured}
+\addplot[structured, mark=pentagon*] table[x=sparsity, y=after]{data/bonus.csv};
+\addlegendentry{Structured (filters)}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (55,\baselineacc)};
+\addlegendentry{Baseline}
+\end{groupplot}
+\end{tikzpicture}

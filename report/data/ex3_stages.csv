@@ -1,0 +1,8 @@
+part,parameters,sparsity
+Stem conv,864,9.26
+Stage 1,36864,34.16
+Stage 2,131072,33.72
+Stage 3,524288,41.31
+Stage 4,2097152,54.09
+Classifier,25700,9.77
+All BN,4800,2.27

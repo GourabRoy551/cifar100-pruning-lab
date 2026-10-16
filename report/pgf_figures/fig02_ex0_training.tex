@@ -1,0 +1,19 @@
+﻿% Figure 2: Exercise 0, training history of the baseline (accuracy and loss).
+\begin{tikzpicture}
+\begin{groupplot}[report,
+  group style={group size=2 by 1, horizontal sep=1.8cm},
+  width=0.45\linewidth, height=5.6cm, xlabel={Epoch}, xmin=0, xmax=31]
+\nextgroupplot[ylabel={Accuracy (\%)}, ymin=0, ymax=100, legend pos=north west]
+\addplot[global, mark=none] table[x=epoch, y=train_acc]{data/ex0_history.csv};
+\addlegendentry{Training}
+\addplot[layerwise, mark=none] table[x=epoch, y=val_acc]{data/ex0_history.csv};
+\addlegendentry{Validation}
+\node[circle, fill=layerwise, inner sep=1.8pt] at (axis cs:29,68.67) {};
+\node[font=\footnotesize, text=layerwise, anchor=north east, align=right] at (axis cs:30.5,62) {best: epoch 29\\68.67\%};
+\nextgroupplot[ylabel={Cross-entropy loss}, ymin=0, legend pos=north east]
+\addplot[global, mark=none] table[x=epoch, y=train_loss]{data/ex0_history.csv};
+\addlegendentry{Training}
+\addplot[layerwise, mark=none] table[x=epoch, y=val_loss]{data/ex0_history.csv};
+\addlegendentry{Validation}
+\end{groupplot}
+\end{tikzpicture}

@@ -1,0 +1,16 @@
+% Figure 4: Exercise 2, layer-wise L1 pruning without re-training.
+\begin{tikzpicture}
+\begin{axis}[report,
+  xlabel={Sparsity (\%)}, ylabel={Validation accuracy (\%)},
+  xmin=-2, xmax=92, ymin=0, ymax=80, xtick={0,10,...,90}, legend pos=north east]
+\addplot[layerwise, mark=*] table[x=sparsity, y=acc]{data/ex2.csv};
+\addlegendentry{Layer-wise L1}
+\addplot[baseline line] coordinates {(-5,\baselineacc) (95,\baselineacc)};
+\addlegendentry{Baseline (68.67\%)}
+\addplot[chance line] coordinates {(-5,1) (95,1)};
+\addlegendentry{Chance level (1\%)}
+\node[font=\small, text=layerwise!80!black, anchor=west] at (axis cs:7,63) {5\%: $-4.0$ points};
+\node[font=\small, text=layerwise!80!black, anchor=west] at (axis cs:21,28) {20\%: 26.7\%};
+\node[font=\small, text=refgray, anchor=south] at (axis cs:70,3) {at chance level from 50\%};
+\end{axis}
+\end{tikzpicture}

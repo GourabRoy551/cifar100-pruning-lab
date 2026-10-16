@@ -1,0 +1,115 @@
+Exercise 4: re-training the pruned models of Exercise 3
+==================================================
+Baseline (unpruned): val loss = 1.1873, val accuracy = 68.67%
+Re-training: 5 epochs, SGD lr = 0.01 (cosine decay), momentum 0.9, weight decay 5e-4
+
+Sparsity 0%: re-training exercise3_global_00.pt
+  epoch 0 (before re-training): val loss = 1.1873, val accuracy = 68.67%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3777, train acc = 0.8899 | val loss = 1.3133, val acc = 0.6598
+  epoch 2/5: lr = 0.00905 | train loss = 0.3679, train acc = 0.8913 | val loss = 1.2904, val acc = 0.6672
+  epoch 3/5: lr = 0.00655 | train loss = 0.3148, train acc = 0.9106 | val loss = 1.2740, val acc = 0.6762
+  epoch 4/5: lr = 0.00345 | train loss = 0.2600, train acc = 0.9303 | val loss = 1.2561, val acc = 0.6803
+  epoch 5/5: lr = 0.00095 | train loss = 0.2234, train acc = 0.9443 | val loss = 1.2370, val acc = 0.6841
+  -> val accuracy 68.67% before, 68.41% after re-training (gain of -0.26 points, 0.26 points below baseline), actual sparsity = 0.00%
+
+Sparsity 5%: re-training exercise3_global_05.pt
+  epoch 0 (before re-training): val loss = 1.1871, val accuracy = 68.67%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3724, train acc = 0.8919 | val loss = 1.3027, val acc = 0.6639
+  epoch 2/5: lr = 0.00905 | train loss = 0.3614, train acc = 0.8931 | val loss = 1.2872, val acc = 0.6692
+  epoch 3/5: lr = 0.00655 | train loss = 0.3111, train acc = 0.9123 | val loss = 1.2752, val acc = 0.6774
+  epoch 4/5: lr = 0.00345 | train loss = 0.2589, train acc = 0.9311 | val loss = 1.2570, val acc = 0.6806
+  epoch 5/5: lr = 0.00095 | train loss = 0.2232, train acc = 0.9446 | val loss = 1.2392, val acc = 0.6839
+  -> val accuracy 68.67% before, 68.39% after re-training (gain of -0.28 points, 0.28 points below baseline), actual sparsity = 5.00%
+
+Sparsity 10%: re-training exercise3_global_10.pt
+  epoch 0 (before re-training): val loss = 1.1874, val accuracy = 68.77%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3675, train acc = 0.8941 | val loss = 1.3013, val acc = 0.6631
+  epoch 2/5: lr = 0.00905 | train loss = 0.3571, train acc = 0.8953 | val loss = 1.2823, val acc = 0.6714
+  epoch 3/5: lr = 0.00655 | train loss = 0.3070, train acc = 0.9138 | val loss = 1.2731, val acc = 0.6772
+  epoch 4/5: lr = 0.00345 | train loss = 0.2581, train acc = 0.9314 | val loss = 1.2540, val acc = 0.6799
+  epoch 5/5: lr = 0.00095 | train loss = 0.2237, train acc = 0.9442 | val loss = 1.2375, val acc = 0.6835
+  -> val accuracy 68.77% before, 68.35% after re-training (gain of -0.42 points, 0.32 points below baseline), actual sparsity = 10.00%
+
+Sparsity 15%: re-training exercise3_global_15.pt
+  epoch 0 (before re-training): val loss = 1.1878, val accuracy = 68.79%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3633, train acc = 0.8955 | val loss = 1.2971, val acc = 0.6658
+  epoch 2/5: lr = 0.00905 | train loss = 0.3512, train acc = 0.8970 | val loss = 1.2801, val acc = 0.6704
+  epoch 3/5: lr = 0.00655 | train loss = 0.3051, train acc = 0.9140 | val loss = 1.2710, val acc = 0.6755
+  epoch 4/5: lr = 0.00345 | train loss = 0.2569, train acc = 0.9327 | val loss = 1.2536, val acc = 0.6807
+  epoch 5/5: lr = 0.00095 | train loss = 0.2241, train acc = 0.9443 | val loss = 1.2381, val acc = 0.6833
+  -> val accuracy 68.79% before, 68.33% after re-training (gain of -0.46 points, 0.34 points below baseline), actual sparsity = 15.00%
+
+Sparsity 20%: re-training exercise3_global_20.pt
+  epoch 0 (before re-training): val loss = 1.1885, val accuracy = 68.61%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3600, train acc = 0.8963 | val loss = 1.2950, val acc = 0.6669
+  epoch 2/5: lr = 0.00905 | train loss = 0.3472, train acc = 0.8982 | val loss = 1.2795, val acc = 0.6715
+  epoch 3/5: lr = 0.00655 | train loss = 0.3025, train acc = 0.9146 | val loss = 1.2677, val acc = 0.6776
+  epoch 4/5: lr = 0.00345 | train loss = 0.2563, train acc = 0.9325 | val loss = 1.2515, val acc = 0.6803
+  epoch 5/5: lr = 0.00095 | train loss = 0.2250, train acc = 0.9434 | val loss = 1.2355, val acc = 0.6851
+  -> val accuracy 68.61% before, 68.51% after re-training (gain of -0.10 points, 0.16 points below baseline), actual sparsity = 20.00%
+
+Sparsity 30%: re-training exercise3_global_30.pt
+  epoch 0 (before re-training): val loss = 1.1909, val accuracy = 68.78%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3558, train acc = 0.8983 | val loss = 1.2898, val acc = 0.6667
+  epoch 2/5: lr = 0.00905 | train loss = 0.3409, train acc = 0.9024 | val loss = 1.2675, val acc = 0.6746
+  epoch 3/5: lr = 0.00655 | train loss = 0.2993, train acc = 0.9164 | val loss = 1.2603, val acc = 0.6798
+  epoch 4/5: lr = 0.00345 | train loss = 0.2575, train acc = 0.9323 | val loss = 1.2471, val acc = 0.6793
+  epoch 5/5: lr = 0.00095 | train loss = 0.2286, train acc = 0.9422 | val loss = 1.2340, val acc = 0.6840
+  -> val accuracy 68.78% before, 68.40% after re-training (gain of -0.38 points, 0.27 points below baseline), actual sparsity = 30.00%
+
+Sparsity 40%: re-training exercise3_global_40.pt
+  epoch 0 (before re-training): val loss = 1.2066, val accuracy = 68.21%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3597, train acc = 0.8972 | val loss = 1.2774, val acc = 0.6682
+  epoch 2/5: lr = 0.00905 | train loss = 0.3417, train acc = 0.9015 | val loss = 1.2581, val acc = 0.6745
+  epoch 3/5: lr = 0.00655 | train loss = 0.3019, train acc = 0.9162 | val loss = 1.2498, val acc = 0.6814
+  epoch 4/5: lr = 0.00345 | train loss = 0.2628, train acc = 0.9302 | val loss = 1.2389, val acc = 0.6828
+  epoch 5/5: lr = 0.00095 | train loss = 0.2356, train acc = 0.9405 | val loss = 1.2274, val acc = 0.6866
+  -> val accuracy 68.21% before, 68.66% after re-training (gain of 0.45 points, 0.01 points below baseline), actual sparsity = 40.00%
+
+Sparsity 50%: re-training exercise3_global_50.pt
+  epoch 0 (before re-training): val loss = 1.2195, val accuracy = 67.67%
+  epoch 1/5: lr = 0.01000 | train loss = 0.3732, train acc = 0.8939 | val loss = 1.2594, val acc = 0.6708
+  epoch 2/5: lr = 0.00905 | train loss = 0.3511, train acc = 0.8984 | val loss = 1.2526, val acc = 0.6754
+  epoch 3/5: lr = 0.00655 | train loss = 0.3112, train acc = 0.9136 | val loss = 1.2449, val acc = 0.6791
+  epoch 4/5: lr = 0.00345 | train loss = 0.2742, train acc = 0.9267 | val loss = 1.2317, val acc = 0.6811
+  epoch 5/5: lr = 0.00095 | train loss = 0.2483, train acc = 0.9364 | val loss = 1.2227, val acc = 0.6841
+  -> val accuracy 67.67% before, 68.41% after re-training (gain of 0.74 points, 0.26 points below baseline), actual sparsity = 50.00%
+
+Sparsity 60%: re-training exercise3_global_60.pt
+  epoch 0 (before re-training): val loss = 1.2940, val accuracy = 65.09%
+  epoch 1/5: lr = 0.01000 | train loss = 0.4070, train acc = 0.8844 | val loss = 1.2551, val acc = 0.6709
+  epoch 2/5: lr = 0.00905 | train loss = 0.3749, train acc = 0.8921 | val loss = 1.2403, val acc = 0.6771
+  epoch 3/5: lr = 0.00655 | train loss = 0.3328, train acc = 0.9085 | val loss = 1.2325, val acc = 0.6775
+  epoch 4/5: lr = 0.00345 | train loss = 0.2970, train acc = 0.9209 | val loss = 1.2239, val acc = 0.6794
+  epoch 5/5: lr = 0.00095 | train loss = 0.2715, train acc = 0.9290 | val loss = 1.2155, val acc = 0.6852
+  -> val accuracy 65.09% before, 68.52% after re-training (gain of 3.43 points, 0.15 points below baseline), actual sparsity = 60.00%
+
+Sparsity 70%: re-training exercise3_global_70.pt
+  epoch 0 (before re-training): val loss = 1.5543, val accuracy = 58.22%
+  epoch 1/5: lr = 0.01000 | train loss = 0.4831, train acc = 0.8635 | val loss = 1.2522, val acc = 0.6643
+  epoch 2/5: lr = 0.00905 | train loss = 0.4296, train acc = 0.8773 | val loss = 1.2410, val acc = 0.6713
+  epoch 3/5: lr = 0.00655 | train loss = 0.3824, train acc = 0.8931 | val loss = 1.2289, val acc = 0.6726
+  epoch 4/5: lr = 0.00345 | train loss = 0.3445, train acc = 0.9059 | val loss = 1.2222, val acc = 0.6761
+  epoch 5/5: lr = 0.00095 | train loss = 0.3181, train acc = 0.9155 | val loss = 1.2132, val acc = 0.6805
+  -> val accuracy 58.22% before, 68.05% after re-training (gain of 9.83 points, 0.62 points below baseline), actual sparsity = 70.00%
+
+Sparsity 80%: re-training exercise3_global_80.pt
+  epoch 0 (before re-training): val loss = 2.7524, val accuracy = 34.60%
+  epoch 1/5: lr = 0.01000 | train loss = 0.6544, train acc = 0.8152 | val loss = 1.2800, val acc = 0.6509
+  epoch 2/5: lr = 0.00905 | train loss = 0.5556, train acc = 0.8395 | val loss = 1.2562, val acc = 0.6604
+  epoch 3/5: lr = 0.00655 | train loss = 0.4955, train acc = 0.8582 | val loss = 1.2333, val acc = 0.6684
+  epoch 4/5: lr = 0.00345 | train loss = 0.4473, train acc = 0.8739 | val loss = 1.2248, val acc = 0.6733
+  epoch 5/5: lr = 0.00095 | train loss = 0.4184, train acc = 0.8835 | val loss = 1.2214, val acc = 0.6739
+  -> val accuracy 34.60% before, 67.39% after re-training (gain of 32.79 points, 1.28 points below baseline), actual sparsity = 80.00%
+
+Sparsity 90%: re-training exercise3_global_90.pt
+  epoch 0 (before re-training): val loss = 5.7027, val accuracy = 4.61%
+  epoch 1/5: lr = 0.01000 | train loss = 1.1381, train acc = 0.6775 | val loss = 1.3689, val acc = 0.6185
+  epoch 2/5: lr = 0.00905 | train loss = 0.8984, train acc = 0.7369 | val loss = 1.3277, val acc = 0.6359
+  epoch 3/5: lr = 0.00655 | train loss = 0.8145, train acc = 0.7597 | val loss = 1.2879, val acc = 0.6445
+  epoch 4/5: lr = 0.00345 | train loss = 0.7457, train acc = 0.7825 | val loss = 1.2545, val acc = 0.6506
+  epoch 5/5: lr = 0.00095 | train loss = 0.7108, train acc = 0.7929 | val loss = 1.2511, val acc = 0.6531
+  -> val accuracy 4.61% before, 65.31% after re-training (gain of 60.70 points, 3.36 points below baseline), actual sparsity = 90.00%
+
+Kept ratio (highest sparsity with accuracy at most 1 point below baseline): 70%, val accuracy = 68.05%
+Results saved in E:\E Drive\UBX\Advanced_Topics_in_IPCV\Lab 1 src files\results\exercise4
